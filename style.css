@@ -27,11 +27,6 @@ body {
     font-display: optional;
 }
 
-/* DEBUG - Remove after testing */
-body {
-    border: 5px solid red !important;
-}
-
 /* ===================================
    CSS Variables & Theme
    =================================== */

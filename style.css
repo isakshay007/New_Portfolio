@@ -17,6 +17,21 @@ body {
 * {
     -webkit-tap-highlight-color: transparent;
 }
+/* Force font display */
+@font-face {
+    font-display: swap;
+}
+
+/* Prevent FOIT (Flash of Invisible Text) */
+body {
+    font-display: optional;
+}
+
+/* DEBUG - Remove after testing */
+body {
+    border: 5px solid red !important;
+}
+
 /* ===================================
    CSS Variables & Theme
    =================================== */

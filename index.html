@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Akshay Keerthi AS - GenAI Engineer | MLOps Engineer | AI Research Engineer. Building autonomous systems that reason, scale, and solve complex real-world problems.">
+    <meta name="keywords" content="AI Engineer, GenAI, MLOps, Data Engineering, Machine Learning, Portfolio">
+    <meta name="author" content="Akshay Keerthi AS">
+    <title>Akshay Keerthi AS | GenAI & AI Research Engineer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Override AOS hidden states - MUST come after AOS CSS -->
+    <style>
+        /* Force ALL content to be visible immediately */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        /* Specific hero section override */
+        .hero,
+        .hero-content,
+        .hero * {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+        }
+
+        /* Ensure navbar is visible */
+        .navbar,
+        .navbar * {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* After DOM ready, restore animations for non-hero sections */
+        body.aos-initialized .about [data-aos],
+        body.aos-initialized .skills [data-aos],
+        body.aos-initialized .projects [data-aos],
+        body.aos-initialized .experience [data-aos],
+        body.aos-initialized .education [data-aos],
+        body.aos-initialized .contact [data-aos] {
+            transition: opacity 0.6s ease, transform 0.6s ease !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-inner"></div>
+    <div class="cursor-outer"></div>
+
+    <!-- Background Blob -->
+    <div class="blob"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles-canvas"
+        style="position: fixed !important; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-text">AK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hello-text">Hello, I'm</p>
+            <h1 class="name" id="name">
+                <span class="letter">A</span><span class="letter">k</span><span class="letter">s</span><span
+                    class="letter">h</span><span class="letter">a</span><span class="letter">y</span>
+                <span class="space"></span>
+                <span class="letter">K</span><span class="letter">e</span><span class="letter">e</span><span
+                    class="letter">r</span><span class="letter">t</span><span class="letter">h</span><span
+                    class="letter">i</span>
+            </h1>
+            <p class="role-text">
+                <span class="typed-role" id="typed-role"></span><span class="cursor-blink">|</span>
+            </p>
+            <p class="tagline">I build production-ready Generative AI applications and scalable software systems,
+                working across LLM-powered agents, RAG pipelines, backend APIs, data pipelines, and modern web
+                interfaces to solve real-world problems.</p>
+
+            <div class="social-links">
+                <a href="mailto:adhikasavansuresh.a@northeastern.edu" class="social-link" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/akshay-keerthi-as-a96b06251/" target="_blank" class="social-link"
+                    aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/isakshay007" target="_blank" class="social-link" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://medium.com/@akshaykeerthi007" target="_blank" class="social-link" aria-label="Medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <circle cx="8" cy="12" r="3"></circle>
+                        <circle cx="16" cy="12" r="1"></circle>
+                        <ellipse cx="12" cy="12" rx="2" ry="3"></ellipse>
+                    </svg>
+                    <span>Medium</span>
+                </a>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="src/resume/AKSHAY_KEERTHI_RESUME.pdf" class="btn btn-secondary" download="Akshay_Keerthi_Resume.pdf">Download Resume</a>
+            </div>
+        </div>
+    </section>
+<!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-heading" data-aos="fade-up">&lt;/AboutMe&gt;</h2>
+
+            <div class="about-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <div class="about-card">
+                    <div class="about-image-container">
+                        <div class="dp">
+                            <img src="src/images/profile.jpg" alt="Akshay Keerthi AS" class="profile-image">
+                        </div>
+                        <div class="location-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Boston, MA (Open to Relocation)</span>
+                        </div>
+                    </div>
+
+                    <div class="about-content">
+                        <h3 class="about-title">I Bring Ideas to Life</h3>
+                        <p class="about-description">
+                            I'm a software engineer who loves turning "this seems impossible" into "wait, it actually works." Currently pursuing my Master's in CS at Northeastern, I've built <strong>automation systems at FedEx</strong> that handle <strong>400+ stations</strong> (saving teams hours every day), launched <strong>AI agents at Lyzr AI</strong> that helped double demo conversions, and created <strong>full-stack apps</strong> that make a real-world impact.
+                            <br><br>
+                            I jump between building <strong>Spring Boot APIs</strong>, designing <strong>React interfaces</strong>, engineering <strong>RAG pipelines with LangChain</strong>, and writing technical docs and blog posts that <strong>thousands of people</strong> have read. Whether it's optimizing a slow database query, debugging a tricky race condition, or architecting a new feature from scratch, I love the challenge of making complex systems actually work.
+                            <br><br>
+                            <strong>What drives me?</strong> The thrill of learning new things and making them work in production. And honestly, just being curious about how things work and figuring out how to make them better.
+                        </p>
+
+                        <div class="skill-pills">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">Java</span>
+                            <span class="skill-pill">TypeScript</span>
+                            <span class="skill-pill">React</span>
+                            <span class="skill-pill">Spring Boot</span>
+                            <span class="skill-pill">FastAPI</span>
+                            <span class="skill-pill">LangChain</span>
+                            <span class="skill-pill">RAG Pipelines</span>
+                            <span class="skill-pill">OpenAI GPT-4</span>
+                            <span class="skill-pill">FAISS</span>
+                            <span class="skill-pill">PyTorch</span>
+                            <span class="skill-pill">Scikit-learn</span>
+                            <span class="skill-pill">Docker</span>
+                            <span class="skill-pill">Kubernetes</span>
+                            <span class="skill-pill">Apache Kafka</span>
+                            <span class="skill-pill">PostgreSQL</span>
+                            <span class="skill-pill">AWS</span>
+                            <span class="skill-pill">Playwright</span>
+                            <span class="skill-pill">JUnit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-heading" data-aos="fade-up">&lt;/Skills&gt;</h2>
+
+            <div class="skills-grid">
+                <!-- Programming & Frameworks -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">Programming & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">.NET</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">ASP.NET Core MVC</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Razor Pages</span>
+                        <span class="skill-tag">Entity Framework Core</span>
+                        <span class="skill-tag">JUnit</span>
+                        <span class="skill-tag">Mockito</span>
+                        <span class="skill-tag">pytest</span>
+                    </div>
+                </div>
+
+                <!-- Databases & DevOps Tools -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="category-title">Databases & DevOps Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Jira</span>
+                    </div>
+                </div>
+
+                <!-- Data, Automation & Tools -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="category-title">Data, Automation & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Playwright</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Power Automate</span>
+                        <span class="skill-tag">SharePoint Lists</span>
+                        <span class="skill-tag">BeautifulSoup</span>
+                        <span class="skill-tag">Azure App Insights</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">Openpyxl</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Slack</span>
+                        <span class="skill-tag">Teams</span>
+                        <span class="skill-tag">Notion</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Cursor</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">X.PagedList</span>
+                        <span class="skill-tag">Chart.js</span>
+                        <span class="skill-tag">Framer Motion</span>
+                        <span class="skill-tag">Shadcn UI</span>
+                        <span class="skill-tag">Zustand</span>
+                    </div>
+                </div>
+
+                <!-- AI/ML & LLMs -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="category-title">AI/ML & LLMs</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">OpenAI GPT-4</span>
+                        <span class="skill-tag">GPT-4 Turbo</span>
+                        <span class="skill-tag">Llama 3.1</span>
+                        <span class="skill-tag">Llama 3.2 Vision</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">scikit-learn</span>
+                        <span class="skill-tag">RAG Pipelines</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">FAISS</span>
+                        <span class="skill-tag">Weaviate</span>
+                        <span class="skill-tag">Pinecone</span>
+                        <span class="skill-tag">Claude</span>
+                        <span class="skill-tag">Copilot</span>
+                        <span class="skill-tag">LlamaIndex</span>
+                        <span class="skill-tag">Langflow</span>
+                        <span class="skill-tag">NLTK</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">DistilBERT</span>
+                        <span class="skill-tag">Hidden Markov Model</span>
+                        <span class="skill-tag">TF-IDF</span>
+                    </div>
+                </div>
+
+                <!-- Cloud & Big Data -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="category-title">Cloud & Big Data</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Apache Kafka</span>
+                        <span class="skill-tag">RouteSmart</span>
+                        <span class="skill-tag">SSAMI</span>
+                        <span class="skill-tag">RaaS Systems</span>
+                        <span class="skill-tag">OpenWeatherMap API</span>
+                        <span class="skill-tag">Stack Exchange API</span>
+                    </div>
+                </div>
+
+                <!-- Architecture & Patterns -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="category-title">Architecture & Patterns</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MVC</span>
+                        <span class="skill-tag">SOLID Principles</span>
+                        <span class="skill-tag">Command Pattern</span>
+                        <span class="skill-tag">Strategy Pattern</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Event-driven Architecture</span>
+                        <span class="skill-tag">JPA/Hibernate ORM</span>
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">Spring Security</span>
+                        <span class="skill-tag">BCrypt</span>
+                        <span class="skill-tag">AspNetCore.Identity</span>
+                        <span class="skill-tag">CRUD Principles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-heading" data-aos="fade-up">&lt;/Projects&gt;</h2>
+
+            <div class="projects-grid">
+                <!-- Project 1: AgriGPT -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="project-title">AgriGPT</h3>
+                    <p class="project-subtitle">Multimodal AI Agriculture Assistant</p>
+                    <p class="project-description">
+                        Built a FastAPI multimodal AI system with 6 specialized agents using LLM-based semantic routing, achieving 88% intent classification accuracy. Architected a RAG pipeline with FAISS for subsidy retrieval and integrated Llama 3.2 Vision for crop disease diagnosis.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">LangChain</span>
+                        <span class="project-tag">FAISS</span>
+                        <span class="project-tag">Llama 3.1</span>
+                        <span class="project-tag">Tailwind CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/isakshay007/AgriGPT" class="project-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: ResQNet -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="project-title">ResQNet</h3>
+                    <p class="project-subtitle">Map-based Disaster Management Platform</p>
+                    <p class="project-description">
+                        Built a disaster management platform with Spring Boot backend and React frontend, reducing reporting latency by 40%. Architected an Apache Kafka event-driven pipeline for real-time alerts across 50+ users with Azure App Insights analytics.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Spring Boot</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Tailwind CSS</span>
+                        <span class="project-tag">Docker</span>
+                        <span class="project-tag">Apache Kafka</span>
+                        <span class="project-tag">PostgreSQL</span>
+                        <span class="project-tag">Azure App Insights</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/isakshay007/ResQNet" class="project-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: StageCraft -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="project-title">StageCraft</h3>
+                    <p class="project-subtitle">Theatre Content Management System</p>
+                    <p class="project-description">
+                        Developed a theatre CMS using C# ASP.NET Core MVC and Entity Framework Core, reducing manual scheduling by 75%. Built with 5+ controllers managing 4+ entities and implemented 10+ role-based features.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">C#</span>
+                        <span class="project-tag">ASP.NET Core MVC</span>
+                        <span class="project-tag">Entity Framework Core</span>
+                        <span class="project-tag">Razor Pages</span>
+                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">X.PagedList</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/isakshay007/StageCraft" class="project-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Stack Overflow Auto-Tagging System -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="project-title">Stack Overflow Auto-Tagging System</h3>
+                    <p class="project-subtitle">Multi-Model Tag Prediction System</p>
+                    <p class="project-description">
+                        Built a multi-model tag prediction system using Hidden Markov Model, TF-IDF, and DistilBERT on 50,000+ Stack Overflow posts. Benchmarked traditional vs. deep learning architectures, outperforming baselines by 30% and reducing error rates by 80%.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Scikit-learn</span>
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">DistilBERT</span>
+                        <span class="project-tag">NLTK</span>
+                        <span class="project-tag">Streamlit</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/isakshay007/StackOverflow_Tagging_System" class="project-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Image Processing App -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="project-title">Image Processing App</h3>
+                    <p class="project-subtitle">Java MVC Application with Design Patterns</p>
+                    <p class="project-description">
+                        Architected a Java MVC system using Command and Strategy patterns for 15+ image operations including Haar Wavelet compression and Floyd-Steinberg dithering. Achieved 95% code coverage using SOLID principles and JUnit/Mockito testing.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Java</span>
+                        <span class="project-tag">Java Swing</span>
+                        <span class="project-tag">MVC</span>
+                        <span class="project-tag">SOLID Principles</span>
+                        <span class="project-tag">JUnit</span>
+                        <span class="project-tag">Mockito</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/isakshay007/ImageProcessorApp" class="project-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Food Donation Tracking System -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="project-title">Food Donation Tracking System</h3>
+                    <p class="project-subtitle">Role-based Python Web Application</p>
+                    <p class="project-description">
+                        Created a Flask application with 3 role-based workflows, improving process efficiency by 35%. Designed a scalable MySQL database with CRUD principles and integrated triggers for notifications and alerts, reducing manual intervention by 20%.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Flask</span>
+                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/isakshay007/FoodDonation_Project" class="project-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Experience Section -->
+<section id="experience" class="experience">
+    <div class="container">
+        <h2 class="section-heading" data-aos="fade-up">&lt;/Experience&gt;</h2>
+
+        <div class="experience-wrapper">
+            <!-- Static Timeline (Left Side) -->
+            <div class="timeline-static">
+                <div class="timeline-endpoint">Dec 2025</div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-midpoint">Jun 2025</div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-midpoint">Aug 2024</div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-endpoint">Mar 2024</div>
+            </div>
+
+            <!-- Experience Cards (Right Side) -->
+            <div class="experience-content">
+                <!-- Experience 1: FedEx -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="experience-header">
+                        <div class="company-info-flex">
+                            <img src="src/images/fedex-logo.png" alt="FedEx" class="company-logo-large">
+                        </div>
+                        <span class="experience-location"><strong>Boston, MA</strong></span>
+                    </div>
+                    <h3 class="experience-role"><strong>Automation Intern</strong></h3>
+                    <ul class="experience-highlights">
+                        <li>Built a Python data pipeline to fetch manifest file's data from FedEx APIs across 400+ Stations, reducing runtime by 35%</li>
+                        <li>Automated a Python pipeline with Playwright to scrape handling units from 50+ shipment IDs, improving runtime by 75%</li>
+                        <li>Engineered a data pipeline to extract CSV/Excel data across RouteSmart, SSAMI, and RaaS systems and implement Openpyxl Excel repair for 100+ stations daily across the United States and Canada, reducing manual effort by 90%</li>
+                        <li>Deployed a Power App scheduling tool with SharePoint Lists, Power BI, and Power Automate, enabling 10+ regional managers to coordinate meetings for 150+ CSS Specialists to 300+ Network 2.0 station based on availability and proximity</li>
+                    </ul>
+                    <div class="experience-tags">
+                        <span class="experience-tag">Python</span>
+                        <span class="experience-tag">Playwright</span>
+                        <span class="experience-tag">Power BI</span>
+                        <span class="experience-tag">Power Automate</span>
+                        <span class="experience-tag">SharePoint Lists</span>
+                        <span class="experience-tag">Openpyxl</span>
+                        <span class="experience-tag">FedEx APIs</span>
+                    </div>
+                </div>
+
+                <!-- Experience 2: Lyzr AI -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="experience-header">
+                        <div class="company-info-flex">
+                            <img src="src/images/lyzr-logo.png" alt="Lyzr AI" class="company-logo-large">
+                        </div>
+                        <span class="experience-location"><strong>Jersey City, NJ</strong></span>
+                    </div>
+                    <h3 class="experience-role"><strong>Member of Technical Staff</strong></h3>
+                    <ul class="experience-highlights">
+                        <li>Deployed 25+ Amabots for YouTube A-list celebrities, enhancing digital presence and increasing fan engagement by 35%</li>
+                        <li>Launched 50+ Gen-AI apps using GPT-4 Turbo, Weaviate, and Streamlit, scaling custom demos for diverse use cases</li>
+                        <li>Engineered LLM-driven chat agents for 15+ venture capital firms and enterprise clients, using prompt engineering, RAG Pipelines, BeautifulSoup-based metadata scraping, and FastAPI integrations to improve response accuracy by 30%</li>
+                        <li>Authored 50+ technical blog posts and YouTube Videos on AI Agents and Lyzr Tools, boosting brand visibility by 20%</li>
+                    </ul>
+                    <div class="experience-tags">
+                        <span class="experience-tag">GPT-4 Turbo</span>
+                        <span class="experience-tag">Weaviate</span>
+                        <span class="experience-tag">Streamlit</span>
+                        <span class="experience-tag">LangChain</span>
+                        <span class="experience-tag">RAG Pipelines</span>
+                        <span class="experience-tag">FastAPI</span>
+                        <span class="experience-tag">BeautifulSoup</span>
+                        <span class="experience-tag">Prompt Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Education Section -->
+<section id="education" class="education">
+    <div class="container">
+        <h2 class="section-heading" data-aos="fade-up">&lt;/Education&gt;</h2>
+
+        <div class="education-grid">
+            <!-- Northeastern University -->
+            <div class="education-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="education-date">Expected Dec 2026</span>
+                <div class="education-logo-container">
+                    <img src="src/images/northeastern-logo.png" alt="Northeastern University" class="education-logo">
+                </div>
+                <div class="education-content">
+                    <h3 class="education-university">Northeastern University</h3>
+                    <p class="education-degree">Master of Science in Computer Science</p>
+                    <p class="education-location">Boston, MA</p>
+                </div>
+            </div>
+
+            <!-- SSN College of Engineering -->
+            <div class="education-card" data-aos="fade-up" data-aos-delay="200">
+                <span class="education-date">2020 - 2024</span>
+                <div class="education-logo-container">
+                    <img src="src/images/ssn-logo.png" alt="SSN College of Engineering" class="education-logo">
+                </div>
+                <div class="education-content">
+                    <h3 class="education-university">SSN College of Engineering</h3>
+                    <p class="education-degree">Bachelor of Engineering in Computer Science</p>
+                    <p class="education-location">Chennai, India</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section (includes quote) -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <!-- Quote Part -->
+            <div class="quote-container" data-aos="fade-up">
+                <p class="quote-text">"Living, Learning, and Leveling Up."</p>
+
+
+                
+                <h2 class="contact-heading" data-aos="fade-up" data-aos-delay="100">ContactMe();</h2>
+                
+                <div class="contact-buttons">
+                    <a href="mailto:adhikasavansuresh.a@northeastern.edu" class="btn btn-primary btn-large">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Send Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/akshay-keerthi-as-a96b06251/" target="_blank"
+                        class="btn btn-secondary btn-large">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        Connect on LinkedIn
+                    </a>
+                </div>
+
+                <div class="quote-social-links" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://github.com/isakshay007" target="_blank" class="quote-social-icon" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/akshay-keerthi-as-a96b06251/" target="_blank" class="quote-social-icon" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="mailto:adhikasavansuresh.a@northeastern.edu" class="quote-social-icon" aria-label="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://medium.com/@akshaykeerthi007" target="_blank" class="quote-social-icon" aria-label="Medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <circle cx="8" cy="12" r="3"></circle>
+                            <circle cx="16" cy="12" r="1"></circle>
+                            <ellipse cx="12" cy="12" rx="2" ry="3"></ellipse>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+
+   
+
+               
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="footer-blob"></div>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    Designed & Built by <span class="highlight">Akshay Keerthi AS</span>
+                </p>
+                <p class="footer-copyright">© 2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="particles.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
